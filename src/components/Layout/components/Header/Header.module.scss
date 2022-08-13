@@ -1,4 +1,4 @@
-header.wrapper {
+.wrapper {
   --search-border-radius: 92px;
   --search-height: 46px;
   --search-top-spacer: 9px;
@@ -16,11 +16,17 @@ header.wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 24px;
+}
+
+.search,
+.search-result {
+  width: 361px;
 }
 
 .search {
   position: relative;
-  width: 361px;
   height: var(--search-height);
   display: flex;
   background-color: rgba(22, 24, 35, 0.06);
@@ -53,6 +59,13 @@ header.wrapper {
   }
 }
 
+.search-title {
+  padding: 5px 12px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: rgba(22, 24, 35, 0.5);
+}
+
 .clear,
 .loading {
   position: absolute;
@@ -76,4 +89,10 @@ header.wrapper {
   &:active {
     background-color: rgba(22, 24, 35, 0.06);
   }
+}
+.more-btn {
+  font-size: 2rem;
+  margin-left: 24px;
+  background-color: transparent;
+  padding: 4px 8px;
 }
