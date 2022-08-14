@@ -35,6 +35,8 @@
   border: 1.5px solid transparent;
 
   input {
+    font-family: 'Proxima Nova', Arial, Tahoma, 'PingFangSC', sans-serif;
+    line-height: 22px;
     flex: 1;
     height: 100%;
     color: var(--black);
@@ -90,9 +92,49 @@
     background-color: rgba(22, 24, 35, 0.06);
   }
 }
+//actions
+.actions {
+  display: flex;
+  align-items: center;
+}
+.action-btn {
+  position: relative;
+  display: flex;
+  font-size: 2.2rem;
+  color: #161823;
+  background-color: transparent;
+  padding: 4px 9.5px;
+  cursor: pointer;
+}
+
+.badge {
+  position: absolute;
+  top: -3px;
+  right: 0px;
+  padding: 0px 6px;
+  height: 2rem;
+  line-height: 2rem;
+  border-radius: 10px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--white);
+  font-family: 'ProximaNova', sans-serif;
+  background-color: var(--primary);
+}
+
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-left: 14.5px;
+  cursor: pointer;
+}
+
 .more-btn {
   font-size: 2rem;
   margin-left: 24px;
   background-color: transparent;
   padding: 4px 8px;
+  cursor: pointer;
 }

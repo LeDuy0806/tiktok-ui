@@ -3,16 +3,19 @@
   align-items: center;
   justify-content: center;
   min-width: 100px;
-  padding: 9px 16px;
+  padding: 6px 8px;
   border-radius: 4px;
+  line-height: 22px;
   font-size: 1.6rem;
   font-weight: 700;
+  // font-family: 'Proxima Nova', sans-serif;
+  font-family: 'Proxima Nova', Arial, Tahoma, 'Ping Fang SC', sans-serif;
   cursor: pointer;
   background-color: var(--white);
   border: 1px solid transparent;
 
   + .wrapper {
-    margin-left: 8px;
+    margin-left: 16px;
   }
 
   &.disabled {
@@ -64,9 +67,13 @@
 }
 
 .text {
+  font-weight: 600;
+  justify-content: center;
+  color: #161823;
   border-color: rgba(22, 24, 35, 0.12);
+
   &:hover {
-    text-decoration: underline;
+    background-color: rgba(22, 24, 35, 0.03);
   }
 }
 
