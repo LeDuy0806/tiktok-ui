@@ -26,4 +26,5 @@ function AccountItem({ data }) {
     );
 }
 
+
 export default AccountItem;
