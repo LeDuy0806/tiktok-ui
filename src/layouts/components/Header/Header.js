@@ -1,28 +1,25 @@
-import classNames from 'classnames/bind';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faCircleQuestion,
-  faPlus,
-  faCoins,
+  faCircleQuestion, faCoins,
   faEarthAsia,
   faGear,
-  faKeyboard,
-  faSignOut,
-  faEllipsisVertical,
-  faUser,
+  faKeyboard, faPlus, faSignOut,
+  // faEllipsisVertical,
+  faUser
 } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Tippy from '@tippyjs/react';
+import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import 'tippy.js/dist/tippy.css';
 
+import images from '~/assets/images';
+import Button from '~/components/Button';
+import { FollowingIcon, InboxIcon, MessageIcon, MoreIcon } from '~/components/Icons';
+import Image from '~/components/Image';
+import Menu from '~/components/Popper/Menu';
 import config from '~/config';
 import Search from '../Search';
-import Button from '~/components/Button';
 import styles from './Header.module.scss';
-import images from '~/assets/images';
-import Menu from '~/components/Popper/Menu';
-import { InboxIcon, MessageIcon, UploadIcon } from '~/components/Icons';
-import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
 
@@ -58,7 +55,7 @@ const MENU_ITEMS = [
 ];
 
 function Header() {
-  const currentUser = true;
+  const currentUser = false;
 
   // Handle logic
   const handleMenuChange = (menuItem) => {
@@ -100,17 +97,19 @@ function Header() {
       <div className={cx('inner')}>
         <Link to={config.routes.home} className={cx('logo-link')}><img src={images.logo} alt="Tiktok" /></Link>
 
+        <FollowingIcon />
+
         <Search />
 
         <div className={cx('actions')}>
           {currentUser ? (
             <>
-              <Tippy delay={[0, 50]} content="Upload video" placement="bottom">
+              {/* <Tippy delay={[0, 50]} content="Upload video" placement="bottom">
                 <button className={cx('action-btn')}>
                   <UploadIcon />
                 </button>
-              </Tippy>
-              {/* <Button text leftIcon={<FontAwesomeIcon icon={faPlus} />}>UpLoad</Button> */}
+              </Tippy> */}
+              <Button className={cx('upload-btn')} text leftIcon={<FontAwesomeIcon icon={faPlus} />}>UpLoad</Button>
               <Tippy delay={[0, 50]} content="Message" placement="bottom">
                 <button className={cx('action-btn')}>
                   <MessageIcon />
@@ -125,7 +124,7 @@ function Header() {
             </>
           ) : (
             <>
-              <Button text leftIcon={<FontAwesomeIcon icon={faPlus} />}>UpLoad</Button>
+              <Button className={cx('upload-btn')} text leftIcon={<FontAwesomeIcon icon={faPlus} />}>UpLoad</Button>
               <Button primary>Log in</Button>
             </>
           )}
@@ -139,8 +138,8 @@ function Header() {
               />
             ) : (
               <button className={cx('more-btn')}>
-                <FontAwesomeIcon icon={faEllipsisVertical} />
-                {/* <MoreIcon /> */}
+                {/* <FontAwesomeIcon icon={faEllipsisVertical} /> */}
+                <MoreIcon />
               </button>
             )}
           </Menu>

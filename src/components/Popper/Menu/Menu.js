@@ -33,6 +33,10 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFn 
         })
     }
 
+    const handleResetOnFirstPage = () => {
+        setHistory(prev => prev.slice(0, 1))
+    }
+
     return (
         <Tippy
             interactive
@@ -54,7 +58,7 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFn 
                     </PopperWrapper>
                 </div>
             )}
-            onHide={() => { setHistory(prev => prev.slice(0, 1)) }}
+            onHide={handleResetOnFirstPage}
         >
             {children}
 

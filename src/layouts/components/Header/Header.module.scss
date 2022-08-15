@@ -39,10 +39,23 @@
   position: relative;
   display: flex;
   font-size: 2.2rem;
-  color: #161823;
+  color: var(--text-color);
   background-color: transparent;
   padding: 4px 9.5px;
   cursor: pointer;
+}
+
+.upload-btn {
+  & > span:first-child {
+    margin: 0 4px;
+  }
+  & > span:nth-child(2) {
+    margin-left: 0px;
+    margin-right: 8px;
+  }
+}
+.upload-btn + .action-btn {
+  margin-left: 10px;
 }
 
 .badge {
@@ -71,8 +84,11 @@
 
 .more-btn {
   font-size: 2rem;
-  margin-left: 24px;
+  margin-left: 16px;
   background-color: transparent;
-  padding: 4px 8px;
+  padding: 4px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
 }

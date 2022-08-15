@@ -8,11 +8,9 @@
   line-height: 22px;
   font-size: 1.6rem;
   font-weight: 700;
-  // font-family: var(--font-family);
-  font-family: 'Proxima Nova', Arial, Tahoma, 'Ping Fang SC', sans-serif;
+  font-family: var(--font-family);
   cursor: pointer;
   background-color: var(--white);
-  border: 1px solid transparent;
 
   + .wrapper {
     margin-left: 16px;
@@ -28,17 +26,22 @@
 .title + .icon {
   margin-left: 8px;
 }
-
+.title {
+  height: 24px;
+  line-height: 24px;
+}
 .icon {
-  display: inline-block;
+  display: inline-flex;
   width: 24px;
-  text-align: center;
+  height: 22px;
+  align-items: center;
+  justify-content: center;
 }
 // Button types
 .rounded {
   border-radius: 999px;
   box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
-  border-color: rgba(22, 24, 35, 0.12);
+  border: 1px solid rgba(22, 24, 35, 0.12);
 
   &:hover {
     border-color: rgba(22, 24, 35, 0.2);
@@ -48,10 +51,8 @@
 .primary {
   background-color: var(--primary);
   color: var(--white);
-  border-color: var(--primary);
 
   &:hover {
-    border-color: var(--primary);
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #fe2c55;
   }
 }
@@ -70,7 +71,8 @@
   font-weight: 600;
   justify-content: center;
   color: #161823;
-  border-color: rgba(22, 24, 35, 0.12);
+  border: 1px solid rgba(22, 24, 35, 0.12);
+  padding: 5px 8px;
 
   &:hover {
     background-color: rgba(22, 24, 35, 0.03);
