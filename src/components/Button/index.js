@@ -18,7 +18,7 @@ const Button = ({ to, href, primary = false,
     rightIcon,
     onClick,
     ...passProps
-}, ref) => {
+}) => {
     let Comp = 'button'
     const props = {
         onClick,
