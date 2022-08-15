@@ -13,13 +13,14 @@
   border: 1.5px solid transparent;
 
   input {
-    font-family: 'Proxima Nova', Arial, Tahoma, 'PingFangSC', sans-serif;
+    font-family: var(--font-family);
     line-height: 22px;
     flex: 1;
     height: 100%;
     color: var(--black);
     font-size: 1.6rem;
     padding: 12px 0px;
+    padding-right: 40px;
     background-color: transparent;
   }
   input:not(:placeholder-shown) ~ .search-btn {
