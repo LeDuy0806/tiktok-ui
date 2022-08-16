@@ -14,7 +14,7 @@ import 'tippy.js/dist/tippy.css';
 
 import images from '~/assets/images';
 import Button from '~/components/Button';
-import { FollowingIcon, InboxIcon, MessageIcon, MoreIcon } from '~/components/Icons';
+import { HomeIcon, InboxIcon, MessageIcon, MoreIcon } from '~/components/Icons';
 import Image from '~/components/Image';
 import Menu from '~/components/Popper/Menu';
 import config from '~/config';
@@ -96,8 +96,6 @@ function Header() {
     <header className={cx('wrapper')}>
       <div className={cx('inner')}>
         <Link to={config.routes.home} className={cx('logo-link')}><img src={images.logo} alt="Tiktok" /></Link>
-
-        <FollowingIcon />
 
         <Search />
 

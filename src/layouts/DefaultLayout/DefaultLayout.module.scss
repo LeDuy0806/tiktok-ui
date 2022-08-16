@@ -4,10 +4,13 @@
   align-items: center;
 }
 .container {
-  width: 1150px;
-  display: flex;
+  width: var(--default-layout-width);
+  max-width: 100%;
   margin-top: var(--default-layout-header-height);
+  display: flex;
+  justify-content: space-between;
 }
 .content {
-  flex: 1;
+  width: 692px;
+  max-width: 692px;
 }
