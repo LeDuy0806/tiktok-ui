@@ -59,6 +59,7 @@
 
   h4 {
     font-family: 'Sofia Pro', sans-serif;
+    line-height: 24.8px;
     font-weight: 700;
     font-size: 16px;
     margin-top: -2px;
@@ -66,7 +67,7 @@
     white-space: nowrap;
   }
   .check {
-    margin-top: -5px;
+    margin-top: -4px;
     font-size: 14px;
     margin-left: 4px;
     color: rgb(32, 213, 236);
@@ -78,7 +79,7 @@
   color: rgba(22, 24, 35, 0.75);
   font-weight: 300;
   line-height: 15px;
-  margin-top: -2px;
+  margin-top: -1px;
 }
 .more-btn {
   color: rgb(254, 44, 85);
@@ -88,4 +89,8 @@
   margin-top: 8px;
   padding: 0 8px;
   cursor: pointer;
+}
+
+.popper {
+  padding-top: 0px;
 }

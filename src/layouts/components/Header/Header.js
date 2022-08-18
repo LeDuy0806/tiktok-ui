@@ -14,7 +14,7 @@ import 'tippy.js/dist/tippy.css';
 
 import images from '~/assets/images';
 import Button from '~/components/Button';
-import { HomeIcon, InboxIcon, MessageIcon, MoreIcon } from '~/components/Icons';
+import { InboxIcon, MessageIcon, MoreIcon } from '~/components/Icons';
 import Image from '~/components/Image';
 import Menu from '~/components/Popper/Menu';
 import config from '~/config';
@@ -107,7 +107,7 @@ function Header() {
                   <UploadIcon />
                 </button>
               </Tippy> */}
-              <Button className={cx('upload-btn')} text leftIcon={<FontAwesomeIcon icon={faPlus} />}>UpLoad</Button>
+              <Button className={cx('upload-btn')} text leftIcon={<FontAwesomeIcon icon={faPlus} />}>Upload</Button>
               <Tippy delay={[0, 50]} content="Message" placement="bottom">
                 <button className={cx('action-btn')}>
                   <MessageIcon />
@@ -122,7 +122,7 @@ function Header() {
             </>
           ) : (
             <>
-              <Button className={cx('upload-btn')} text leftIcon={<FontAwesomeIcon icon={faPlus} />}>UpLoad</Button>
+              <Button className={cx('upload-btn')} text leftIcon={<FontAwesomeIcon icon={faPlus} />}>Upload</Button>
               <Button primary>Log in</Button>
             </>
           )}

@@ -1,0 +1,71 @@
+.content {
+  margin-right: 114px;
+}
+
+.info {
+  display: flex;
+  p {
+    height: 28px;
+  }
+}
+
+.username {
+  font-family: 'Sofia Pro', sans-serif;
+  font-size: 18px;
+  margin-right: 4px;
+
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .check {
+    padding-bottom: 1px;
+    font-size: 14px;
+    margin-left: 4px;
+    color: rgb(32, 213, 236);
+  }
+}
+
+.name {
+  font-weight: 350;
+  font-size: 14px;
+  display: inline-block;
+  line-height: 32px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.follow-btn {
+  border: 1px solid var(--primary);
+  font-weight: 600;
+  line-height: 28px;
+  height: 28px;
+  position: absolute;
+  top: 28px;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-desc {
+  margin-top: 2px;
+  line-height: 22px;
+  strong {
+    font-weight: 600;
+  }
+}
+
+.video-music {
+  margin-top: 4px;
+  margin-bottom: 12px;
+  font-weight: 600;
+  height: 23.2px;
+
+  .music-icon {
+    font-size: 12px;
+    margin-right: 8px;
+  }
+}

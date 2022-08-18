@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+.video-card {
+  height: calc(450px + (100vw - 768px) / 1152 * 100);
+  cursor: pointer;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-right: 20px;
+}
+
+.video-player {
+  width: 100%;
+  height: 100%;
+  .video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.action {
+  display: flex;
+  flex-direction: column;
+}
+.action-btn {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white);
+  align-items: center;
+
+  span {
+    font-size: 21px;
+    line-height: 48px;
+    height: 48px;
+    width: 48px;
+    margin-top: 8px;
+    margin-bottom: 6px;
+    background-color: rgba(22, 24, 35, 0.06);
+    border-radius: 50%;
+  }
+  strong {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 17px;
+    color: rgba(22, 24, 35, 0.75);
+  }
+}

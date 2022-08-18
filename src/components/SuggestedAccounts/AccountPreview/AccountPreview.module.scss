@@ -2,11 +2,11 @@
   overflow: hidden;
   width: 320px;
   padding: 20px;
-  padding: 20px;
   background: rgb(255, 255, 255);
   box-shadow: rgb(0 0 0 / 12%) 0px 4px 16px;
   border-radius: 8px;
 }
+
 .header {
   display: flex;
   flex-direction: row;
@@ -32,16 +32,19 @@
   flex-direction: row;
   -webkit-box-align: center;
   align-items: center;
+
   height: 20px;
 
   span {
     font-family: 'Sofia Pro', sans-serif;
     font-weight: 700;
+    margin-top: 4px;
     font-size: 18px;
     max-width: 260px;
     white-space: nowrap;
   }
   .check {
+    margin-top: 4px;
     font-size: 14px;
     margin-left: 4px;
     color: rgb(32, 213, 236);
@@ -49,6 +52,7 @@
 }
 
 .name {
+  margin-top: 5px;
   font-weight: 600;
   font-size: 14px;
   line-height: 20px;
@@ -67,6 +71,7 @@
     margin-right: 12px;
     color: rgba(22, 24, 35, 0.75);
     font-size: 17px;
+    font-weight: 350;
     line-height: 20px;
     display: inline-block;
   }

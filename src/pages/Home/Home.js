@@ -1,6 +1,9 @@
+import WatchVideo from "~/layouts/components/MainVideo";
+
 function Home() {
     return <div>
-        videoplayer
+        <WatchVideo />
+        <WatchVideo />
     </div>;
 }
 

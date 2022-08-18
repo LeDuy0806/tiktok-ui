@@ -7,7 +7,7 @@ import styles from './AccountPreview.module.scss';
 
 const cx = classNames.bind(styles)
 
-function AccountPreview() {
+function AccountPreview({ main }) {
     return (
         <div className={cx('wrapper')}>
             <header className={cx('header')}>

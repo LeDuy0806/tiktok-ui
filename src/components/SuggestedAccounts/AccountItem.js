@@ -14,7 +14,7 @@ function AccountItem() {
     const renderPreview = (attrs) => {
         return (
             <div tabIndex='-1' {...attrs}>
-                <PopperWrapper>
+                <PopperWrapper className={cx('popper')}>
                     <AccountPreview />
                 </PopperWrapper>
             </div>
@@ -25,7 +25,7 @@ function AccountItem() {
             <Tippy
                 interactive
                 delay={[800, 0]}
-                offset={[-10, 0]}
+                offset={[-22, 2]}
                 placement="bottom"
                 render={renderPreview}
 
