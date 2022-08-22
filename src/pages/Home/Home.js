@@ -1,9 +1,8 @@
-import WatchVideo from "~/layouts/components/MainVideo";
+import MainContent from "~/layouts/components/MainContent/MainContent";
 
 function Home() {
     return <div>
-        <WatchVideo />
-        <WatchVideo />
+        <MainContent />
     </div>;
 }
 

@@ -8,40 +8,40 @@ import Tippy from "@tippyjs/react/headless";
 
 const cx = classNames.bind(styles)
 
-const renderPreview = (attrs) => {
-    return (
-        <div tabIndex='-1' {...attrs}>
-            <AccountPreview className={cx('popper')} />
-        </div>
-    )
-}
-
 function Content() {
+    const renderPreview = (attrs) => {
+        return (
+            <div tabIndex='-1' {...attrs}>
+                <AccountPreview className={cx('popper')} />
+            </div>
+        )
+    }
     return (
         <div className={cx('content')}>
 
-            <Tippy
-                interactive
-                delay={[800, 0]}
-                offset={[-170, 30]}
-                placement="bottom"
-                render={renderPreview}
-            >
-                <div className={cx('info')}>
-
-                    <h3 className={cx('username')}>
-                        hoaa.hanassii
-                        <FontAwesomeIcon className={cx('check')} icon={faCheckCircle} />
-                    </h3>
-                    <p className={cx('name')}>Đào Lê Phương Hoa</p>
-                </div>
-            </Tippy>
+            <div>
+                <Tippy
+                    interactive
+                    delay={[800, 0]}
+                    offset={[-170, 30]}
+                    placement="bottom"
+                    render={renderPreview}
+                >
+                    <div className={cx('info')}>
+                        <h3 className={cx('username')}>
+                            hoaa.hanassii
+                            <FontAwesomeIcon className={cx('check')} icon={faCheckCircle} />
+                        </h3>
+                        <p className={cx('name')}>Đào Lê Phương Hoa</p>
+                    </div>
+                </Tippy>
+            </div>
 
 
             <Button className={cx('follow-btn')} outline small>Follow</Button>
             <div className={cx('video-desc')}>
                 <span>Tóc mới </span>
-                <strong>#Xuhuong</strong>
+                <strong className={cx('hashtag')}>#Xuhuong</strong>
             </div>
             <p className={cx('video-music')}>
                 <FontAwesomeIcon className={cx('music-icon')} icon={faMusic} />
