@@ -9,16 +9,9 @@
   border-radius: 8px;
   overflow: hidden;
   margin-right: 20px;
-}
-
-.video-player {
-  width: 100%;
-  height: 100%;
-  .video {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
+  position: relative;
+  background: #eee center no-repeat;
+  background-size: cover;
 }
 
 .action {
@@ -42,6 +35,7 @@
     border-radius: 50%;
   }
   strong {
+    font-family: 'Proxima Nova', sans-serif;
     font-size: 12px;
     font-weight: 600;
     line-height: 17px;

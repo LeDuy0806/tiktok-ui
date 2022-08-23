@@ -2,3 +2,43 @@
   width: 356px;
   padding: 20px 0px 26px 8px;
 }
+
+.footer {
+  position: relative;
+  padding-top: 16px;
+  padding-left: 8px;
+  &::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    top: 0;
+    height: 1px;
+    background: rgba(22, 24, 35, 0.12);
+  }
+}
+.link-container {
+  margin-bottom: 8px;
+  p {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 17px;
+    display: inline-block;
+    margin-right: 6px;
+    margin-top: 5px;
+    color: rgba(22, 24, 35, 0.5);
+    cursor: pointer;
+  }
+  p:hover {
+    text-decoration: underline;
+  }
+}
+.copyright {
+  color: rgba(22, 24, 35, 0.5);
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 17px;
+  display: inline-block;
+  margin-right: 6px;
+  margin-top: 5px;
+}

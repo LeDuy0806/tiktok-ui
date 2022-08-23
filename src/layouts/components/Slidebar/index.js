@@ -1,1 +1,1 @@
-export { default } from './Slidebar';
+export { default } from './Sidebar';

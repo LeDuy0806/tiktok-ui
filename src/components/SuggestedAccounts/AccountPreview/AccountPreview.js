@@ -1,39 +1,57 @@
-
+import PropTypes from 'prop-types';
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames/bind";
 import Button from "~/components/Button";
 import styles from './AccountPreview.module.scss';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles)
 
-function AccountPreview({ main }) {
+function numberFormatter(num) {
+    if (num >= 1000000000) {
+        return (num / 1000000000).toFixed(1).replace(/\.0$/, '') + 'G';
+    }
+    if (num >= 1000000) {
+        return (num / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+    }
+    if (num >= 1000) {
+        return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+    }
+    return num;
+}
+
+function AccountPreview({ data = {} }) {
     return (
         <div className={cx('wrapper')}>
             <header className={cx('header')}>
-                <img
+                <Image
                     className={cx('avatar')}
-                    src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/f75993e97bd5424690cb3c702fc88b0d~c5_100x100.jpeg?x-expires=1660831200&x-signature=qhnfCv2ORkBJqtnE6ePd9vBDIZM%3D"
+                    src={data.avatar}
                     alt=""
                 />
                 <Button className={cx('btn-follow')} primary>Follow</Button>
             </header>
             <div className={cx('body')}>
                 <div className={cx('username')}>
-                    <span>hoaa.hanassii</span>
-                    <div className={cx('check')}><FontAwesomeIcon icon={faCheckCircle} /></div>
+                    <span>{data.nickname}</span>
+                    {data.tick && <div className={cx('check')}><FontAwesomeIcon icon={faCheckCircle} /></div>}
                 </div>
-                <p className={cx('name')}>Đào Lê Phương Hoa</p>
+                <p className={cx('name')}>{data.first_name + ' ' + data.last_name}</p>
                 <p className={cx('analytics')}>
-                    <span className={cx('value')}>13M</span>
+                    <span className={cx('value')}>{`${numberFormatter(data.followers_count)}`}</span>
                     <span className={cx('label')}>Followers</span>
-                    <span className={cx('value')}>291.6M</span>
+                    <span className={cx('value')}>{`${numberFormatter(data.likes_count)}`}</span>
                     <span className={cx('label')}>Likes</span>
                 </p>
             </div>
 
         </div>
     );
+}
+
+AccountPreview.propTypes = {
+    data: PropTypes.object,
 }
 
 export default AccountPreview;
