@@ -1,25 +1,15 @@
-<<<<<<< HEAD
 import PropTypes from 'prop-types';
-=======
->>>>>>> c4fe8105e74255f90896aab5b505d7ba51da6c7b
 import { faPause, faPlay } from "@fortawesome/free-solid-svg-icons";
 import { faFlag } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames/bind";
 import styles from './Video.module.scss'
 import './Video.scss'
-<<<<<<< HEAD
 import { memo, useEffect, useRef, useState } from "react";
 import ReactSlider from "react-slider";
 import ReactPlayer from 'react-player';
 import { VolumeIcon, VolumeMuteIcon } from "../Icons";
 import useElementOnScreen from '~/hooks/useElementOnScreen';
-=======
-import { useEffect, useRef, useState } from "react";
-import ReactSlider from "react-slider";
-import ReactPlayer from 'react-player';
-import { VolumeIcon, VolumeMuteIcon } from "../Icons";
->>>>>>> c4fe8105e74255f90896aab5b505d7ba51da6c7b
 
 
 const cx = classNames.bind(styles)
@@ -39,17 +29,12 @@ const formatTime = (time) => {
 }
 
 let lastvolume = 80;
-<<<<<<< HEAD
 function Video({ data }) {
-=======
-function Video() {
->>>>>>> c4fe8105e74255f90896aab5b505d7ba51da6c7b
     const [isPlay, setPlay] = useState(false)
     const [playTime, setPlayTime] = useState({});
     const [isMuted, setMuted] = useState(false)
     const [volumeValue, setVolume] = useState(80)
     const videoRef = useRef(null)
-<<<<<<< HEAD
     const wrapperRef = useRef(null)
     const options = {
         root: null,
@@ -57,13 +42,10 @@ function Video() {
         threshold: 0.3
     }
     const isVisibile = useElementOnScreen(options, wrapperRef)
-=======
->>>>>>> c4fe8105e74255f90896aab5b505d7ba51da6c7b
 
     const { playedSeconds: currentTime, loadedSeconds: duration } = playTime
 
     useEffect(() => {
-<<<<<<< HEAD
         if (isVisibile) {
             if (!isPlay) {
                 videoRef.current.seekTo(0, "fraction")
@@ -77,9 +59,6 @@ function Video() {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isVisibile])
-=======
-    }, [isPlay])
->>>>>>> c4fe8105e74255f90896aab5b505d7ba51da6c7b
 
     const hanldeVolumeChange = (value) => {
         const newvalue = 100 - value
@@ -113,19 +92,11 @@ function Video() {
         setPlayTime({ ...playTime, playedSeconds: value / 100 * duration });
     }
     return (
-<<<<<<< HEAD
         <div ref={wrapperRef} className={cx('video-player')}>
             <ReactPlayer
                 ref={videoRef}
                 className={cx('video')}
                 url={data.file_url}
-=======
-        <div className={cx('video-player')}>
-            <ReactPlayer
-                ref={videoRef}
-                className={cx('video')}
-                url="https://files.fullstack.edu.vn/f8-tiktok/videos/41-630328b187ad5.mp4"
->>>>>>> c4fe8105e74255f90896aab5b505d7ba51da6c7b
                 playing={isPlay}
                 volume={volumeValue / 100}
                 width='100%'
@@ -178,12 +149,8 @@ function Video() {
     );
 }
 
-<<<<<<< HEAD
 Video.propTypes = {
     data: PropTypes.object.isRequired,
 }
 
 export default memo(Video);
-=======
-export default Video;
->>>>>>> c4fe8105e74255f90896aab5b505d7ba51da6c7b
