@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom/client';
 import App from '~/App';
 import reportWebVitals from './reportWebVitals';
 import GlobalSyles from './components/GlobalStyles';
+import { VolumeProvider } from './Context/VolumeContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
   <GlobalSyles>
-    <App />
+    <VolumeProvider>
+      <App />
+    </VolumeProvider>
   </GlobalSyles>
   // </React.StrictMode>,
 );

@@ -5,11 +5,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames/bind";
 import styles from './Video.module.scss'
 import './Video.scss'
-import { memo, useEffect, useRef, useState } from "react";
+import { memo, useEffect, useRef, useState, useContext } from "react";
 import ReactSlider from "react-slider";
 import ReactPlayer from 'react-player';
 import { VolumeIcon, VolumeMuteIcon } from "../Icons";
-import useElementOnScreen from '~/hooks/useElementOnScreen';
+import { useElementOnScreen } from '~/hooks';
+import { VolumeContext } from '~/Context/VolumeContext';
 
 
 const cx = classNames.bind(styles)
@@ -27,26 +28,27 @@ const formatTime = (time) => {
     }
     return `${minute}:${second}`;
 }
-
-let lastvolume = 80;
+let playHistory = true;
 function Video({ data }) {
     const [isPlay, setPlay] = useState(false)
     const [playTime, setPlayTime] = useState({});
-    const [isMuted, setMuted] = useState(false)
-    const [volumeValue, setVolume] = useState(80)
+    const volumeContext = useContext(VolumeContext)
     const videoRef = useRef(null)
     const wrapperRef = useRef(null)
+
+    const { isMuted, volumeValue, hanldeVolumeChange, toogleVolume } = volumeContext
+
     const options = {
         root: null,
-        rootMargin: '0px',
+        rootMargin: '-170px -50px',
         threshold: 0.3
     }
-    const isVisibile = useElementOnScreen(options, wrapperRef)
+    const isVisible = useElementOnScreen(options, wrapperRef)
 
     const { playedSeconds: currentTime, loadedSeconds: duration } = playTime
 
     useEffect(() => {
-        if (isVisibile) {
+        if (isVisible) {
             if (!isPlay) {
                 videoRef.current.seekTo(0, "fraction")
                 setPlay(true)
@@ -54,37 +56,34 @@ function Video({ data }) {
         }
         else {
             if (isPlay) {
+                videoRef.current.seekTo(0, "fraction")
                 setPlay(false)
             }
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isVisibile])
+    }, [isVisible])
+    useEffect(() => {
+        const handleVisibilityChange = () => {
+            if (isVisible) {
+                if (!document.hidden) {
+                    playHistory && setPlay(true)
+                } else {
+                    setPlay((prev) => {
+                        playHistory = prev;
+                        return false
+                    })
+                }
+            }
+        }
+        document.addEventListener("visibilitychange", handleVisibilityChange)
 
-    const hanldeVolumeChange = (value) => {
-        const newvalue = 100 - value
-        if (newvalue) {
-            setVolume(newvalue)
-            setMuted(false)
+        return () => {
+            document.removeEventListener("visibilitychange", handleVisibilityChange)
         }
-        else {
-            setVolume(newvalue)
-            setMuted(true)
-        }
-    }
-
-    const toogleVolume = () => {
-        if (isMuted) {
-            setMuted(false)
-            setVolume(lastvolume)
-        } else {
-            setMuted(true)
-            lastvolume = volumeValue
-            setVolume(0)
-        }
-    }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isVisible, document.hidden])
 
     const handleProgress = (changeState) => {
-        // console.log(videoRef.current.getCurrentTime())
         setPlayTime(changeState);
     }
     const handleProgressChange = (value) => {
@@ -104,7 +103,7 @@ function Video({ data }) {
                 loop={true}
                 onProgress={handleProgress}
             />
-            <div className={cx('play-btn')} onClick={() => setPlay(!isPlay)}>
+            <div className={cx('play-btn')} onClick={() => { setPlay(!isPlay); }}>
                 {isPlay ? (<FontAwesomeIcon icon={faPause} />) : (<FontAwesomeIcon icon={faPlay} />)}
             </div>
 
